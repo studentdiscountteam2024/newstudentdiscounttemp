@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Swiper js css code */
+
+.custom-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.custom-dot {
+  height: 7px;
+  width: 7px;
+  background-color: #047481; /* Teal-800 color */
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* .custom-dot {
+  background-color: #047481; 
+} */
+
+.custom-dot.active {
+  background-color: #4DB6AC; /* Teal-300 color */
+}
+
+
+
+.owl-prev,
+.owl-next {
+  display: none !important;
+}
+
+.outline-color{
+    color: #115E59;
+}
+
+.discount-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 10px;
+}
+.discount-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.discount-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #28a745;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.discount-link:hover {
+  background-color: #218838;
+}
+
+.owl-carousel .item {
+  text-align: center;
+}
+.owl-carousel .item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
