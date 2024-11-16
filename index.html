@@ -168,7 +168,7 @@
 
 
       <!--  Card list out -start-->
-      <section id="discount-container" class="discount-list "></section>
+      <section id="discount-container" class="discount-list flex sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row "></section>
 
         <!--  Card list out -end-->
     </main>
@@ -264,7 +264,7 @@ async function fetchBanners() {
     // Reinitialize OwlCarousel after dynamically adding banners
     $(".owl-carousel").owlCarousel({
       loop: true,
-      ma  rgin: 10,
+      margin: 10,
       nav: true,
       autoplay: true,
       autoplayTimeout: 3500,
