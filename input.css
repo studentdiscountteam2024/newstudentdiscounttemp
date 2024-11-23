@@ -15,7 +15,7 @@
 .custom-dot {
   height: 7px;
   width: 7px;
-  background-color: #047481; /* Teal-800 color */
+  background-color:  rgb(253 230 138); /* bg-amber-200 */
   border-radius: 50%;
   margin: 0 5px;
   cursor: pointer;
@@ -27,7 +27,7 @@
 } */
 
 .custom-dot.active {
-  background-color: #4DB6AC; /* Teal-300 color */
+  background-color: rgb(251 191 36); /* bg-amber-400 */
 }
 
 
