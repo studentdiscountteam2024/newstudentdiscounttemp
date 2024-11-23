@@ -69,8 +69,30 @@
 .owl-carousel .item {
   text-align: center;
 }
+
 .owl-carousel .item img {
   width: 100%;
   height: auto;
   border-radius: 8px;
+}
+
+/* Owl dots styling for consistent appearance across all screen sizes */
+.owl-dots {
+  display: flex !important; /* Ensure flex display is applied */
+  justify-content: center;
+  margin-top: 10px;
+  gap: 5px; /* Space between dots */
+}
+
+.owl-dots button {
+  height: 10px;
+  width: 10px;
+  background-color: rgb(253 230 138); /* Default dot color (amber-200) */
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.owl-dots .active {
+  background-color: rgb(251 191 36); /* Active dot color (amber-400) */
 }
