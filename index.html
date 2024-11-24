@@ -148,7 +148,7 @@ async function fetchBanners() {
         </div>
       `
       )
-      .join(''); 
+      .join('');
 
     // Reinitialize OwlCarousel after dynamically adding banners
     $(".owl-carousel").owlCarousel({
@@ -157,19 +157,33 @@ async function fetchBanners() {
       nav: true,
       autoplay: true,
       autoplayTimeout: 3500,
-      dots: true, // Ensure dots are enabled
+      dots: true, // Enable dots
       responsive: {
         0: { items: 1 },
-        600: { items: 2 },
+        600: { items: 1 },
         1000: { items: 2 },
-        1400: { items: 2 }, // Ensure enough items to trigger more dots
+        1400: { items: 3 }, 
       },
+      onInitialized: updateDotColors,
+      onTranslated: updateDotColors,
     });
 
+    function updateDotColors() {
+      // Dynamically apply the active/inactive dot colors
+      $(".owl-dots .owl-dot").removeClass("active-dot inactive-dot");
+      $(".owl-dots .owl-dot").each(function () {
+        if ($(this).hasClass("active")) {
+          $(this).addClass("active-dot"); // Add active class
+        } else {
+          $(this).addClass("inactive-dot"); // Add inactive class
+        }
+      });
+    }
   } catch (error) {
     console.error('Error fetching banners:', error);
   }
 }
+
 
 async function fetchBrands() {
   try {
