@@ -192,19 +192,20 @@ async function fetchBrands() {
 
     // Initialize OwlCarousel for the brand section
     $(".brand-carousel").owlCarousel({
-      loop: true,
-      margin: 10,
-      nav: false,
-      autoplay: true,
-      autoplayTimeout: 3500,
-      dots: true,
-      responsive: {
-        0: { items: 4 },
-        600: { items: 5 },
-        1000: { items: 5 },
-        1400: { items: 5 },
-      },
-    });
+  loop: true,
+  margin: 10,
+  nav: false,
+  autoplay: true,
+  autoplayTimeout: 3500,
+  dots: true,
+  rtl: true, // Enables left-to-right motion
+  responsive: {
+    0: { items: 4 },
+    600: { items: 4 },
+    1000: { items: 4 },
+    1400: { items: 4 },
+  },
+});
   } catch (error) {
     console.error('Error fetching brands:', error);
   }
