@@ -58,6 +58,20 @@
         </div>
       </section>
       <!-- Banner-end -->
+
+<!-- brands affliated -->
+      <section class="brand-affiliation my-3 lg:px-3 xl:px-3 2xl:px-3">
+  <div class="showcase">
+    <div class="un-container">
+      <div class="owl-carousel brand-carousel owl-theme">
+        <!-- Items will be dynamically added here -->
+      </div>
+    </div>
+  </div>
+</section>
+      
+<!--       Brand affliated end -->
+
       
 
 
@@ -157,12 +171,52 @@ async function fetchBanners() {
   }
 }
 
+async function fetchBrands() {
+  try {
+    const response = await fetch('https://api.studentdiscountteam.workers.dev/brands'); // Adjust API endpoint
+    const brands = await response.json();
+
+    const container = document.querySelector('.brand-carousel'); // Target the brand carousel container
+
+    container.innerHTML = brands
+      .map(
+        (brand) => `
+        <div class="item px-2">
+          <a href="${brand.websitelink}" target="_blank">
+            <img src="${brand.imgurl}" alt="${brand.name}" class="rounded-md" />
+          </a>
+        </div>
+      `
+      )
+      .join('');
+
+    // Initialize OwlCarousel for the brand section
+    $(".brand-carousel").owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: false,
+      autoplay: true,
+      autoplayTimeout: 3500,
+      dots: true,
+      responsive: {
+        0: { items: 4 },
+        600: { items: 5 },
+        1000: { items: 5 },
+        1400: { items: 5 },
+      },
+    });
+  } catch (error) {
+    console.error('Error fetching brands:', error);
+  }
+}
 
 </script>
+    
  <script>
   document.addEventListener('DOMContentLoaded', () => {
   fetchDiscounts();
   fetchBanners();
+  fetchBrands(); // Fetch and initialize the brand carousel
 });
 
  </script>
