@@ -4,7 +4,29 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Swiper js css code */
+/* General Carousel Dot Styling */
+.owl-dots {
+  display: flex !important; /* Ensure flex display is applied */
+  justify-content: center;
+  margin-top: 10px;
+  gap: 5px; /* Space between dots */
+}
+
+.owl-dots button {
+  height: 10px;
+  width: 10px;
+  background-color: rgb(253 230 138); /* Default dot color (amber-200) */
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.owl-dots .active {
+  background-color: rgb(251 191 36); /* Active dot color (amber-400) */
+}
+
+/* Custom Dot Styling */
 .custom-dots {
   display: flex !important;
   justify-content: center;
@@ -26,15 +48,13 @@
   background-color: rgb(251 191 36); /* bg-amber-400 */
 }
 
+/* Navigation Arrows */
 .owl-prev,
 .owl-next {
   display: none !important;
 }
 
-.outline-color{
-  color: #115E59;
-}
-
+/* Discount Card Styling */
 .discount-card {
   border: 1px solid #ddd;
   padding: 15px;
@@ -63,6 +83,7 @@
   background-color: #218838;
 }
 
+/* Owl Carousel Item Styling */
 .owl-carousel .item {
   text-align: center;
 }
@@ -73,27 +94,7 @@
   border-radius: 8px;
 }
 
-/* Owl dots styling for consistent appearance across all screen sizes */
-.owl-dots {
-  display: flex !important; /* Ensure flex display is applied */
-  justify-content: center;
-  margin-top: 10px;
-  gap: 5px; /* Space between dots */
-}
-
-.owl-dots button {
-  height: 10px;
-  width: 10px;
-  background-color: rgb(253 230 138); /* Default dot color (amber-200) */
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-}
-
-.owl-dots .active {
-  background-color: rgb(251 191 36); /* Active dot color (amber-400) */
-}
-/* Brand Carousel Styles */
+/* Brand Affiliation Carousel Styling */
 .brand-affiliation .item {
   text-align: center;
 }
@@ -107,20 +108,10 @@
 }
 
 .brand-affiliation .owl-dots {
-  display: flex !important;
-  justify-content: center;
-  margin-top: 10px;
+  display: none !important; /* Hide dots for brand affiliation */
 }
 
-.brand-affiliation .owl-dots button {
-  height: 10px;
-  width: 10px;
-  background-color: rgb(253 230 138); /* Default dot color */
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-}
-
-.brand-affiliation .owl-dots .active {
-  background-color: rgb(251 191 36); /* Active dot color */
+/* Outline Color Styling */
+.outline-color {
+  color: #115E59;
 }
