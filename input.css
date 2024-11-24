@@ -93,3 +93,34 @@
 .owl-dots .active {
   background-color: rgb(251 191 36); /* Active dot color (amber-400) */
 }
+/* Brand Carousel Styles */
+.brand-affiliation .item {
+  text-align: center;
+}
+
+.brand-affiliation .item img {
+  width: 80%; /* Adjust size to fit within the carousel */
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px; /* Optional: for rounded logos */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
+
+.brand-affiliation .owl-dots {
+  display: flex !important;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.brand-affiliation .owl-dots button {
+  height: 10px;
+  width: 10px;
+  background-color: rgb(253 230 138); /* Default dot color */
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.brand-affiliation .owl-dots .active {
+  background-color: rgb(251 191 36); /* Active dot color */
+}
