@@ -219,11 +219,12 @@ async function fetchBrands() {
     1000: { items: 6 },
     1400: { items: 6 },
   },
+  onInitialized: () => {
+    document.querySelectorAll('.brand-affiliation .item img').forEach((img) => {
+      img.style.opacity = 1; // Show images smoothly
+    });
+  },
 });
-  } catch (error) {
-    console.error('Error fetching brands:', error);
-  }
-}
 
 </script>
     
