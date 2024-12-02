@@ -106,7 +106,7 @@
     container.innerHTML = discounts
       .map(
         (item) => {
-          // Get the discount percentage and display it conditionally
+          // Get the discount percentage and display it conditionally from the server
           const discountPercentage = item.discountpercentage;
           const discountText = discountPercentage
             ? ${discountPercentage}% Off
