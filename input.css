@@ -95,14 +95,6 @@
 }
 
 /* Brand Affiliation Carousel Styling */
-.brand-affiliation .brand-carousel {
-  display: flex;
-  flex-wrap: nowrap; /* Prevent images from stacking */
-  overflow: hidden; /* Hide any overflow */
-  justify-content: center;
-  align-items: center;
-}
-
 .brand-affiliation .item {
   text-align: center;
 }
@@ -113,17 +105,6 @@
   margin: 0 auto;
   border-radius: 8px; /* Optional: for rounded logos */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
-  opacity: 0; /* Hide images until initialized */
-  transition: opacity 0.3s ease; /* Smooth fade-in effect */
-}
-
-.brand-affiliation .brand-carousel .item img::before {
-  content: '';
-  display: block;
-  width: 80%;
-  height: 100px;
-  background: #f3f3f3; /* Light gray for placeholder */
-  border-radius: 8px;
 }
 
 .brand-affiliation .owl-dots {
