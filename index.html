@@ -95,144 +95,117 @@
 
 
 <script>
-  async function fetchDiscounts() {
+  document.addEventListener('DOMContentLoaded', () => {
+  fetchDiscounts();
+  fetchBanners();
+  fetchBrands();
+});
+
+async function fetchDiscounts() {
   try {
     const response = await fetch('https://api.studentdiscountteam.workers.dev/discounts');
     const discounts = await response.json();
-    console.log(discounts); // Log the data to check structure
+    const container = document.querySelector('#discount-container');
 
-    const container = document.querySelector('#discount-container'); // Ensure this ID exists in your HTML.
-
+    // Generate discount cards dynamically
     container.innerHTML = discounts
-      .map(
-        (item) => {
-          // Get the discount percentage and display it conditionally from the server
-          const discountPercentage = item.discountpercentage;
-          const discountText = discountPercentage
-            ? ${discountPercentage}% Off
-            : 'No Discount Available';
+      .map((item) => {
+        const discountPercentage = item.discountpercentage
+          ? `${item.discountpercentage}% Off`
+          : 'No Discount Available';
 
-          // Generate HTML for each discount
-          return 
-            <div class="discount-card">
-              <img src="${item.imageurl}" alt="${item.companyname}" class="discount-image" />
-              <h3 class="font-bold">${item.companyname}</h3>
-              <p>${discountText}</p> <!-- Display the formatted discount text -->
-              <p>${item.discountpara}</p>
-              <a href="${item.link}" class="discount-link" target="_blank">Claim Now</a>
-            </div>
-          ;
-        }
-      )
+        return `
+          <div class="discount-card">
+            <img src="${item.imageurl}" alt="${item.companyname}" class="discount-image" />
+            <h3 class="font-bold">${item.companyname}</h3>
+            <p>${discountPercentage}</p>
+            <p>${item.discountpara}</p>
+            <a href="${item.link}" class="discount-link" target="_blank">Claim Now</a>
+          </div>`;
+      })
       .join('');
   } catch (error) {
     console.error('Error fetching discounts:', error);
   }
 }
 
-
 async function fetchBanners() {
   try {
     const response = await fetch('https://api.studentdiscountteam.workers.dev/banner');
     const banners = await response.json();
+    const container = document.querySelector('.owl-carousel');
 
-    const container = document.querySelector('.owl-carousel'); // Ensure this class exists in your HTML.
-
+    // Generate banners dynamically
     container.innerHTML = banners
       .map(
-        (item) => 
-        <div class="item px-2">
-          <a href="${item.websitelink}" target="_blank">
-            <img src="${item.imgurl}" alt="Banner" class="rounded-md" />
-          </a>
-        </div>
-      
+        (item) => `
+          <div class="item px-2">
+            <a href="${item.websitelink}" target="_blank">
+              <img src="${item.imgurl}" alt="Banner" class="rounded-md" />
+            </a>
+          </div>`
       )
       .join('');
 
-    // Reinitialize OwlCarousel after dynamically adding banners
+    // Initialize OwlCarousel for banners
     $(".owl-carousel").owlCarousel({
       loop: true,
       margin: 10,
       nav: true,
       autoplay: true,
       autoplayTimeout: 3500,
-      dots: true, // Enable dots
+      dots: true,
       responsive: {
         0: { items: 1 },
         600: { items: 1 },
         1000: { items: 2 },
-        1400: { items: 2 }, 
+        1400: { items: 2 },
       },
-      onInitialized: updateDotColors,
-      onTranslated: updateDotColors,
     });
-
-    function updateDotColors() {
-      // Dynamically apply the active/inactive dot colors
-      $(".owl-dots .owl-dot").removeClass("active-dot inactive-dot");
-      $(".owl-dots .owl-dot").each(function () {
-        if ($(this).hasClass("active")) {
-          $(this).addClass("active-dot"); // Add active class
-        } else {
-          $(this).addClass("inactive-dot"); // Add inactive class
-        }
-      });
-    }
   } catch (error) {
     console.error('Error fetching banners:', error);
   }
 }
 
-
 async function fetchBrands() {
   try {
-    const response = await fetch('https://api.studentdiscountteam.workers.dev/brands'); // Adjust API endpoint
+    const response = await fetch('https://api.studentdiscountteam.workers.dev/brands');
     const brands = await response.json();
+    const container = document.querySelector('.brand-carousel');
 
-    const container = document.querySelector('.brand-carousel'); // Target the brand carousel container
-
+    // Generate brand logos dynamically
     container.innerHTML = brands
       .map(
-        (brand) => 
-        <div class="item px-2">
-          <a href="${brand.websitelink}" target="_blank">
-            <img src="${brand.imgurl}" alt="${brand.name}" class="rounded-md" />
-          </a>
-        </div>
-      
+        (brand) => `
+          <div class="item px-2">
+            <a href="${brand.websitelink}" target="_blank">
+              <img src="${brand.imgurl}" alt="${brand.name}" class="rounded-md" />
+            </a>
+          </div>`
       )
       .join('');
 
-    // Initialize OwlCarousel for the brand section
+    // Initialize OwlCarousel for brands
     $(".brand-carousel").owlCarousel({
-  loop: true,
-  margin: 10,
-  nav: true,
-  autoplay: true,
-  autoplayTimeout: 1500,
-  dots: false,
-  rtl: true, // Enables left-to-right motion
-  responsive: {
-    0: { items: 3 },
-    600: { items: 5 },
-    1000: { items: 6 },
-    1400: { items: 6 },
-  },
-});
+      loop: true,
+      margin: 10,
+      nav: true,
+      autoplay: true,
+      autoplayTimeout: 1500,
+      dots: false,
+      rtl: true,
+      responsive: {
+        0: { items: 3 },
+        600: { items: 5 },
+        1000: { items: 6 },
+        1400: { items: 6 },
+      },
+    });
   } catch (error) {
     console.error('Error fetching brands:', error);
   }
 }
 
-</script>
-    
- <script>
-  document.addEventListener('DOMContentLoaded', () => {
-  fetchDiscounts();
-  fetchBanners();
-  fetchBrands(); // Fetch and initialize the brand carousel
-});
 
  </script>
 
