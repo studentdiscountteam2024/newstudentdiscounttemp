@@ -107,11 +107,32 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
 }
 
-.brand-affiliation .owl-dots {
-  display: none !important; /* Hide dots for brand affiliation */
-}
-
 /* Outline Color Styling */
 .outline-color {
   color: #115E59;
+}
+
+/* Hide and show brand carousel for initial load */
+.brand-carousel {
+  display: none; /* Hide initially */
+  width: 100%;
+  display: flex; /* Use flex for initial layout */
+  flex-wrap: wrap; /* Allow items to wrap */
+  justify-content: center; /* Center items */
+}
+
+.brand-carousel .item {
+  margin: 10px; /* Optional: adjust spacing */
+}
+
+/* Show the carousel after it's loaded */
+.brand-carousel.loaded {
+  display: flex; /* Display as flex layout */
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.brand-carousel {
+  opacity: 0; /* Set initial opacity to 0 */
+  transition: opacity 0.5s ease-in; /* Fade-in transition */
 }
