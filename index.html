@@ -109,11 +109,11 @@
           // Get the discount percentage and display it conditionally
           const discountPercentage = item.discountpercentage;
           const discountText = discountPercentage
-            ? `${discountPercentage}% Off`
+            ? ${discountPercentage}% Off
             : 'No Discount Available';
 
           // Generate HTML for each discount
-          return `
+          return 
             <div class="discount-card">
               <img src="${item.imageurl}" alt="${item.companyname}" class="discount-image" />
               <h3 class="font-bold">${item.companyname}</h3>
@@ -121,7 +121,7 @@
               <p>${item.discountpara}</p>
               <a href="${item.link}" class="discount-link" target="_blank">Claim Now</a>
             </div>
-          `;
+          ;
         }
       )
       .join('');
@@ -140,13 +140,13 @@ async function fetchBanners() {
 
     container.innerHTML = banners
       .map(
-        (item) => `
+        (item) => 
         <div class="item px-2">
           <a href="${item.websitelink}" target="_blank">
             <img src="${item.imgurl}" alt="Banner" class="rounded-md" />
           </a>
         </div>
-      `
+      
       )
       .join('');
 
@@ -194,13 +194,13 @@ async function fetchBrands() {
 
     container.innerHTML = brands
       .map(
-        (brand) => `
+        (brand) => 
         <div class="item px-2">
           <a href="${brand.websitelink}" target="_blank">
             <img src="${brand.imgurl}" alt="${brand.name}" class="rounded-md" />
           </a>
         </div>
-      `
+      
       )
       .join('');
 
@@ -219,12 +219,11 @@ async function fetchBrands() {
     1000: { items: 6 },
     1400: { items: 6 },
   },
-  onInitialized: () => {
-    document.querySelectorAll('.brand-affiliation .item img').forEach((img) => {
-      img.style.opacity = 1; // Show images smoothly
-    });
-  },
 });
+  } catch (error) {
+    console.error('Error fetching brands:', error);
+  }
+}
 
 </script>
     
