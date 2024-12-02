@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* General Carousel Dot Styling */
+/* General Carousel Dot Stylings */
 .owl-dots {
   display: flex !important; /* Ensure flex display is applied */
   justify-content: center;
